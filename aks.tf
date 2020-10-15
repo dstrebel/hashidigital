@@ -20,7 +20,7 @@ resource "azurerm_kubernetes_cluster" "privateaks" {
   network_profile {
     docker_bridge_cidr = var.network_docker_bridge_cidr
     dns_service_ip     = var.network_dns_service_ip
-    network_plugin     = "azure"
+    network_plugin     = "kubenet"
     outbound_type      = "userDefinedRouting"
     service_cidr       = var.network_service_cidr
   }
