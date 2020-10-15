@@ -13,7 +13,7 @@ deny[msg] {
 deny[msg] {
     network_model = input.resource.azurerm_kubernetes_cluster[name]
     has_field(network_model, "network_profile")
-    network_model.network_profile.network_plugin == "kubenet"
+    network_model.network_profile.network_plugin != "kubenet"
     msg = sprintf("AKS Cluster `%v` is using Network Plugin Kubenet, which is not allowed. Please use azure CNI", [name])
 }
 
